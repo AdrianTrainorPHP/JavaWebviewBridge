@@ -21,6 +21,10 @@ public class Bridge {
                     ) {
 
                         if (newState == Worker.State.SUCCEEDED) {
+
+                            /*
+                             * IMPORTANT: When the WebEngine has loaded - inject the "Bridge" into the window (accessible in JavaScript as "Bridge" variable
+                             */
                             JSObject win = (JSObject) webengine.executeScript("window");
                             win.setMember("Bridge", self);
                         }
@@ -30,11 +34,15 @@ public class Bridge {
     }
 
     public void log(String message) {
+        /*
+         * IMPORTANT: All JS console.logs and console.errors are suppressed. Using this method will output the log into the Java System Log.
+         * In JS call `Bridge.log('message')`
+         */
         System.out.println(message);
     }
 
     public void exit() {
-        System.out.println("Bridge.exit called");
+        this.log("Bridge.exit called");
         Platform.exit();
     }
 }
