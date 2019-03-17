@@ -1,20 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Panel</title>
-        <link href="assets/vendor/css/bootstrap.min.css" rel="stylesheet"/>
-    </head>
-    <body>
-        <!-- IMPORTANT: Button to be used to trigger Java to close the application -->
-        <button id="exit-app" class="btn btn-danger btn-block">Exit</button>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>Panel</title>
+    <link href="assets/vendor/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/panel.css" rel="stylesheet" />
+</head>
+<body>
 
-    <script src="assets/vendor/js/jquery-3.3.1.min.js" type="text/javascript"></script>
-    <script src="assets/vendor/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <div class="chart-container">
+                <canvas id="bar-one" height="250" style="background-color: white;"></canvas>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="chart-container">
+                <canvas id="bar-two" height="250" style="background-color: white;"></canvas>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="chart-container">
+                <canvas id="pie-one" height="250" style="background-color: white;"></canvas>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="chart-container">
+                <canvas id="line-one" height="250" style="background-color: white;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <!-- IMPORTANT: Load JavaScript BridgeConnection helper - allows direct communication with Java Main class -->
-    <script src="assets/js/helpers/BridgeConnection.js" type="text/javascript"></script>
-    <!-- IMPORTANT: panel.js initialises the BridgeConnection helper -->
-    <script src="assets/js/panel.js" type="text/javascript"></script>
+<script src="assets/vendor/js/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script src="assets/vendor/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+<script src="assets/vendor/js/Chart.min.js" type="text/javascript"></script>
+<script src="assets/js/helpers/BridgeConnection.js" type="text/javascript"></script>
+<script src="assets/js/panel.js" type="text/javascript"></script>
+</body>
 </html>
