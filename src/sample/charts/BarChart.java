@@ -1,7 +1,6 @@
 package sample.charts;
 
 import sample.charts.chart.BarDataset;
-
 import java.util.ArrayList;
 
 public class BarChart extends Chart
@@ -25,10 +24,14 @@ public class BarChart extends Chart
         dataJoinable.add("\"labels\":[\"" + String.join("\",\"", this.labels) + "\"]");
         dataJoinable.add("\"datasets\":[" + this.dataset.toJson() + "]");
 
+        ArrayList<String> optionsJoinable = new ArrayList<>();
+        optionsJoinable.add("\"legend\":{\"display\":false}");
+        optionsJoinable.add("\"scales\":{\"yAxes\":[{\"ticks\":{\"beginAtZero\":true}}]}");
+
         ArrayList<String> joinable = new ArrayList<>();
         joinable.add(this.typeToString(this.type));
         joinable.add(this.joinToJson("data", dataJoinable));
-        joinable.add("\"options\":{\"legend\":{\"display\":false}}");
+        joinable.add(this.joinToJson("options", optionsJoinable));
         return "{" + String.join(",", joinable) + "}";
     }
 }
